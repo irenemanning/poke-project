@@ -30,20 +30,53 @@ function getPoke() {
                 pokeImg.setAttribute('width', '230')
                 pokeCard.append(pokeImg)
                 let heartBtn = document.createElement('div')
+                let faveText = document.createElement('h5')
+                faveText.innerText = " "
+                //let faveContainer = document.getElementById('fave-container')
+                
                 heartBtn.setAttribute('id', 'heart-button')
                 heartBtn.className = " "
                 heartBtn.innerText = EMPTY_HEART
                 pokeCard.append(heartBtn)
+                pokeCard.append(faveText)
+                //animation function
+                function rubberBand(elem, iterations) {
+                    var keyframes = [
+                      {transform: 'scale3d(1, 1, 1)', offset: 0}, 
+                      {transform: 'scale3d(1.25, 0.75, 1)', offset: 0.3}, 
+                      {transform: 'scale3d(0.75, 1.25, 1)', offset: 0.4}, 
+                      {transform: 'scale3d(1.15, 0.85, 1)', offset: 0.5}, 
+                      {transform: 'scale3d(.95, 1.05, 1)', offset: 0.65}, 
+                      {transform: 'scale3d(1.05, .95, 1)', offset: 0.75}, 
+                      {transform: 'scale3d(1, 1, 1)', offset: 1}];
+                    var timing = {duration: 900, iterations: iterations};
+                    return elem.animate(keyframes, timing);        
+                  }
+                //animation function
+
+                
                 heartBtn.addEventListener('click', () =>{
                     if (heartBtn.innerText === EMPTY_HEART) {
                         heartBtn.className = "active"
                         heartBtn.innerText = FULL_HEART
+                        rubberBand(heartBtn)
                         console.log(`${pokemon.name} added to favorites`)
+                        faveText.innerText = `${pokemon.name} added to favorites`
+                        setTimeout(() => {
+                            faveText.innerText = ''
+                        }, 2000);
+                        
                         
                     } else {
                         heartBtn.className = " "
                         heartBtn.innerText = EMPTY_HEART
+                        rubberBand(heartBtn)
                         console.log(`${pokemon.name} removed from favorites`)
+                        faveText.innerText = `${pokemon.name} removed from favorites`
+                        setTimeout(() => {
+                            faveText.innerText = ' '
+                        }, 2000);
+                        
                     }
 
                 })

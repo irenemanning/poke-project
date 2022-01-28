@@ -5,10 +5,14 @@
 body {
     background-color: yellow;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    justify-content: center;
+    align-content: center;
+    
 }
 
-header h2 {
+header h2, h3 {
     text-align: right;
+    color: red;
 }
 
 header {
@@ -16,11 +20,16 @@ header {
     padding: 1%;
     margin: 3%;
 }
+
+header h1 {
+    font-size: 60px;
+}
+
 #poke-container .poke-card{
     max-width: 80%;
     
-    border: rgb(68, 0, 255) solid 10px;
-    display: grid;
+    border: rgb(68, 0, 255) solid 8px;
+    display: table;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -28,13 +37,15 @@ header {
 }
 
 .poke-card {
-    height: 390px;
-    width: 280px;
+    height: 400px;
+    width: 300px;
     float: left;
    padding: 10px;
    border: 5px solid black;
    margin: 10px;
    background-color: rgb(224, 255, 47);
+   justify-content: center;
+   align-content: center;
    
 }
 
@@ -49,12 +60,18 @@ header {
     margin-left: auto;
     margin: 3px auto;
 }
+.poke-card h5 {
+    width: 85%;
+    float: left;
+    text-align: center;
+}
 
 #heart-button {
     font-size: 60px;
     text-align: center;
-    background-color: cornflowerblue;
-    width: 100%;
+    width: 15%;
+    height: 15%;
+    float: left;
     
 }
 
