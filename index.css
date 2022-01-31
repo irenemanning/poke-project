@@ -3,7 +3,7 @@
     margin: 3%;
 }
 body {
-    background-color: yellow;
+    background-color:blue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     justify-content: center;
     align-content: center;
@@ -12,45 +12,53 @@ body {
 
 header h2, h3 {
     text-align: right;
-    color: red;
+    color: yellow;
+    text-shadow: 2px 2px 4px red;
 }
 
 header {
     max-width: 920px;
     padding: 1%;
     margin: 3%;
+    display: block;
 }
 
 header h1 {
     font-size: 60px;
+    color: yellow;
+    text-shadow: 4px 5px 6px red;
 }
 
 #poke-container .poke-card{
     max-width: 80%;
-    
-    border: rgb(68, 0, 255) solid 8px;
+    height: 420px;
+    border: rgb(0, 0, 0) solid 8px;
     display: table;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 5px;
     
 }
 
 .poke-card {
-    height: 400px;
+    height: 420px;
     width: 300px;
     float: left;
    padding: 10px;
    border: 5px solid black;
    margin: 10px;
-   background-color: rgb(224, 255, 47);
+   background-color: yellow;
    justify-content: center;
    align-content: center;
+   text-align: center;
    
 }
 
 .poke-card h2 {
     text-align: center;
+    color: black;
+    font-size: 30px;
+    text-shadow: 1px 1px 2px blue;
     
 }
 
@@ -58,12 +66,14 @@ header h1 {
     display: block;
     margin-right: auto;
     margin-left: auto;
-    margin: 3px auto;
+    margin: 2px auto;
 }
 .poke-card h5 {
     width: 85%;
-    float: left;
+    float: right;
     text-align: center;
+    color: rgb(30, 92, 1);
+    display: inline;
 }
 
 #heart-button {
@@ -72,9 +82,84 @@ header h1 {
     width: 15%;
     height: 15%;
     float: left;
+    margin: 0px;
     
 }
 
-.active {
+#heart-button.active {
     color: red;
+    font-size: 52px;
+    width: 15%;
+    height: 15%;
+}
+
+ul.ability-list  li{
+    list-style: none;  
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+    
+    
+}
+ul h3 {
+    text-align: center;
+    margin: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 7px;
+    padding-top: 10px;
+    color: red;
+    text-shadow: 0px 0px 0px ;
+}
+
+ul {
+    background: rgb(179, 255, 38);
+    padding: 15px;
+    text-align: center;
+    width: 70%;
+    align-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 20px;
+    border: black solid 5px;
+    border-radius: 20px;
+}
+
+#fave-container {
+    border-top: black 5px solid;
+    float: left;
+    min-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: rgb(179, 255, 38);
+    padding: 20px;
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    
+}
+.fave-pokes {
+    margin: 10px;
+    justify-content: center;
+    border: solid 4px black;
+    display: grid;
+    width: 120px;
+    float: left;
+    background-color: yellow;
+}
+.fave-pokes h3 {
+    text-align: center;
+    color: black;
+    text-shadow: 1px 0px 1px red;
+    
+}
+.fave-pokes img {
+    height: 100px;
+    width: 100px;
+    padding: 10px;
 }

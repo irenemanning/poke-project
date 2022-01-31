@@ -29,10 +29,36 @@ function getPoke() {
                 pokeImg.setAttribute("height", '230')
                 pokeImg.setAttribute('width', '230')
                 pokeCard.append(pokeImg)
+                //image animation pulse
+                function pulse(elem, iterations) {
+                    var keyframes = [
+                      {transform: 'scale3d(1, 1, 1)', offset: 0}, 
+                      {transform: 'scale3d(1.05, 1.05, 1.05)', offset: 0.5}, 
+                      {transform: 'scale3d(1, 1, 1)', offset: 1}];
+                    var timing = {duration: 900, iterations: iterations};
+                    return elem.animate(keyframes, timing);
+                  }
+            
+                pokeImg.addEventListener('mouseover', () => {
+                    pulse(pokeImg)
+                })
+                let ul = document.createElement('ul')
+                let abilityLabel = document.createElement('h3')
+                abilityLabel.innerText = 'Abilities: '
+                ul.append(abilityLabel)
+                ul.className = "ability-list"
+                pokeData.abilities.forEach(id => {
+                    let li = document.createElement('li')
+                    li.innerText = ` •${id.ability.name}• `
+                    ul.append(li)
+                    pokeCard.append(ul)
+                });
+                
                 let heartBtn = document.createElement('div')
                 let faveText = document.createElement('h5')
                 faveText.innerText = " "
-                //let faveContainer = document.getElementById('fave-container')
+                
+               
                 
                 heartBtn.setAttribute('id', 'heart-button')
                 heartBtn.className = " "
@@ -54,23 +80,35 @@ function getPoke() {
                   }
                 //animation function
 
-                
+                let faveContainer = document.getElementById('fave-container')
+
                 heartBtn.addEventListener('click', () =>{
                     if (heartBtn.innerText === EMPTY_HEART) {
                         heartBtn.className = "active"
                         heartBtn.innerText = FULL_HEART
                         rubberBand(heartBtn)
+                        //trying to add to favorite section
+                        
+                        let favDiv = document.createElement('div')
+                        favDiv.className = "fave-pokes"
+                        favDiv.setAttribute('id', `fave-${pokemon.name}`)
+                        let favName = document.createElement('h3')
+                        favName.innerText = `${pokemon.name}`
+                        favDiv.append(favName)
+                        favDiv.append(pokeImg.cloneNode())
+                        faveContainer.append(favDiv)
+                        //^^^^^
                         console.log(`${pokemon.name} added to favorites`)
                         faveText.innerText = `${pokemon.name} added to favorites`
                         setTimeout(() => {
                             faveText.innerText = ''
                         }, 2000);
                         
-                        
                     } else {
                         heartBtn.className = " "
                         heartBtn.innerText = EMPTY_HEART
                         rubberBand(heartBtn)
+                        faveContainer.removeChild(document.getElementById(`fave-${pokemon.name}`))
                         console.log(`${pokemon.name} removed from favorites`)
                         faveText.innerText = `${pokemon.name} removed from favorites`
                         setTimeout(() => {
