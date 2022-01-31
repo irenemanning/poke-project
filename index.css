@@ -42,7 +42,7 @@ header h1 {
 
 .poke-card {
     height: 420px;
-    width: 300px;
+    width: 360px;
     float: left;
    padding: 10px;
    border: 5px solid black;
@@ -118,7 +118,7 @@ ul {
     background: rgb(179, 255, 38);
     padding: 15px;
     text-align: center;
-    width: 70%;
+    width: 300px;
     align-content: center;
     margin-right: auto;
     margin-left: auto;

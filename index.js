@@ -10,7 +10,6 @@ function getPoke() {
     fetch('https://pokeapi.co/api/v2/pokemon')
     .then(r => r.json())
     .then(data => {
-        console.log(data)
         data.results.forEach(pokemon => {
             const pokeContainer = document.getElementById('poke-container')
             let pokeCard = document.createElement('div')
@@ -23,7 +22,6 @@ function getPoke() {
             fetch(`${pokemon.url}`)
             .then(resp => resp.json())
             .then(pokeData => {
-                console.log(pokeData)
                 let pokeImg = document.createElement('img')
                 pokeImg.src = pokeData.sprites.other.dream_world.front_default
                 pokeImg.setAttribute("height", '230')
@@ -98,7 +96,6 @@ function getPoke() {
                         favDiv.append(pokeImg.cloneNode())
                         faveContainer.append(favDiv)
                         //^^^^^
-                        console.log(`${pokemon.name} added to favorites`)
                         faveText.innerText = `${pokemon.name} added to favorites`
                         setTimeout(() => {
                             faveText.innerText = ''
@@ -109,12 +106,10 @@ function getPoke() {
                         heartBtn.innerText = EMPTY_HEART
                         rubberBand(heartBtn)
                         faveContainer.removeChild(document.getElementById(`fave-${pokemon.name}`))
-                        console.log(`${pokemon.name} removed from favorites`)
                         faveText.innerText = `${pokemon.name} removed from favorites`
                         setTimeout(() => {
                             faveText.innerText = ' '
-                        }, 2000);
-                        
+                        }, 2000); 
                     }
 
                 })
