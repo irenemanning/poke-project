@@ -27,10 +27,6 @@ function getPoke() {
                 heartBtn.innerText = EMPTY_HEART
                 pokeCard.append(heartBtn)
                 pokeCard.append(faveText)
-               
-
-                
-
                 heartBtn.addEventListener('click', () => toggleHeart(pokemon, heartBtn, faveText)) 
             })
         });
@@ -59,8 +55,7 @@ function makeImage(pokeCard, pokeData) {
     pokeImg.setAttribute("height", '230')
     pokeImg.setAttribute('width', '230')
     pokeCard.append(pokeImg)
-
-    // animation 
+ 
     function animation(elem, iterations) {
         let keyframes = [
              {opacity: 0},
@@ -78,9 +73,6 @@ function makeImage(pokeCard, pokeData) {
         let timing = {duration: 5000, iterations: iterations};
         return elem.animate(keyframes, timing);
         }
-
-
-//event listener 
     pokeImg.addEventListener('mouseover', () => {
         animation(pokeImg)
     })
@@ -105,7 +97,7 @@ function toggleHeart(pokemon, heartBtn, faveText) {
     let faveContainer = document.getElementById('fave-container')
      //animation function
      function rubberBand(elem, iterations) {
-        var keyframes = [
+        let keyframes = [
           {transform: 'scale3d(1, 1, 1)', offset: 0}, 
           {transform: 'scale3d(1.25, 0.75, 1)', offset: 0.3}, 
           {transform: 'scale3d(0.75, 1.25, 1)', offset: 0.4}, 
@@ -113,16 +105,13 @@ function toggleHeart(pokemon, heartBtn, faveText) {
           {transform: 'scale3d(.95, 1.05, 1)', offset: 0.65}, 
           {transform: 'scale3d(1.05, .95, 1)', offset: 0.75}, 
           {transform: 'scale3d(1, 1, 1)', offset: 1}];
-        var timing = {duration: 900, iterations: iterations};
+        let timing = {duration: 900, iterations: iterations};
         return elem.animate(keyframes, timing);        
       }
-    //animation function
     if (heartBtn.innerText === EMPTY_HEART) {
         heartBtn.className = "active"
         heartBtn.innerText = FULL_HEART
         rubberBand(heartBtn)
-        //trying to add to favorite section
-        
         let favDiv = document.createElement('div')
         favDiv.className = "fave-pokes"
         favDiv.setAttribute('id', `fave-${pokemon.name}`)
