@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     getPoke()
+
 })
+
+
 
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
@@ -17,8 +20,6 @@ function getPoke() {
             .then(resp => resp.json())
             .then(pokeData => {
                 let pokeCard = makePokeCard(pokemon, pokeData)
-
-                
                 let heartBtn = document.createElement('div')
                 let faveText = document.createElement('h5')
                 faveText.innerText = " "
@@ -27,7 +28,7 @@ function getPoke() {
                 heartBtn.innerText = EMPTY_HEART
                 pokeCard.append(heartBtn)
                 pokeCard.append(faveText)
-                heartBtn.addEventListener('click', () => toggleHeart(pokemon, heartBtn, faveText)) 
+                heartBtn.addEventListener('click', () => toggleHeart(pokemon, heartBtn, faveText))
             })
         });
     })
@@ -76,7 +77,7 @@ function makeImage(pokeCard, pokeData) {
     pokeImg.addEventListener('mouseover', () => {
         animation(pokeImg)
     })
-}
+} 
 
 function makeAbility(pokeCard, pokeData) {
     let ul = document.createElement('ul')
